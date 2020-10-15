@@ -2,7 +2,7 @@
 // @Author      : caodaqian
 // @CreateTime  : 2020-10-12 23:54:16
 // @LastEditors : caodaqian
-// @LastEditTime: 2020-10-14 22:47:40
+// @LastEditTime: 2020-10-15 22:05:24
 // @Description : 定义建造者模式的场景类
 //
 package main
@@ -25,11 +25,11 @@ func (c *car) run() {
 	for _, v := range c.mySeqence {
 		switch v {
 		case "start":
-			c.start()
+			c.iCar.start()
 		case "stop":
-			c.stop()
+			c.iCar.stop()
 		case "alert":
-			c.alert()
+			c.iCar.alert()
 		default:
 			panic("unknown action")
 		}

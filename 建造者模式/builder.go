@@ -2,7 +2,7 @@
 // @Author      : caodaqian
 // @CreateTime  : 2020-10-13 23:48:28
 // @LastEditors : caodaqian
-// @LastEditTime: 2020-10-14 22:56:18
+// @LastEditTime: 2020-10-15 22:11:22
 // @Description : 建造者模式
 //
 package main
@@ -13,27 +13,29 @@ type iCarBuilder interface {
 }
 
 type aCarBuilder struct {
-	myCar aCar
+	myACar car
 }
 
 func (acb *aCarBuilder) getCar() *car {
-	return &acb.myCar.car
+	acb.myACar.iCar = new(aCar)
+	return &acb.myACar
 }
 
 func (acb *aCarBuilder) setSeqence(seq []string) {
-	acb.myCar.mySeqence = seq
+	acb.myACar.mySeqence = seq
 }
 
 type bCarBuilder struct {
-	myCar bCar
+	myBCar car
 }
 
 func (bcb *bCarBuilder) getCar() *car {
-	return &bcb.myCar.car
+	bcb.myBCar.iCar = new(bCar)
+	return &bcb.myBCar
 }
 
 func (bcb *bCarBuilder) setSeqence(seq []string) {
-	bcb.myCar.mySeqence = seq
+	bcb.myBCar.mySeqence = seq
 }
 
 type director struct {
